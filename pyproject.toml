@@ -1,6 +1,6 @@
 [project]
 name = "cppm"
-version = "0.1.1"
+version = "0.1.2"
 description = "A CLI helper tool for managing C++ projects"
 authors = [
     {name = "Kape",email = "kleberkapelinski@gmail.com"}
