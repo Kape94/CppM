@@ -81,7 +81,7 @@ Usage:
 cppm add <vcpkg-libs>
 ```
 For a reference on the available C++ libs on vcpkg you might look at https://vcpkg.io/en/packages?query=
-Also, the add command itself doesn't install the packages right aways, it just add them to vcpkg.json. In order to properly install the packages, you need then to use the install command.
+Also, the add command itself doesn't install the packages right away, it just add them to vcpkg.json. In order to properly install the packages, you need then to use the install command.
 
 ### install
 
@@ -121,5 +121,5 @@ cppm install
 cppm build
 ```
 
-Aside from doing these commands, you would also need to add the proper find_package and target_linx_libraries calls on your CMake. Ususally these two calls get outputted by vcpkg during installation, so it's mostly a matter of copying the calls to your CMakeLists.txt
+Aside from doing these commands, you would also need to add the proper find_package and target_link_libraries calls on your CMake. Ususally these two calls get outputted by vcpkg during installation, so it's mostly a matter of copying the calls to your CMakeLists.txt
 
