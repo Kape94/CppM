@@ -1,15 +1,16 @@
+import os
+
 from .utils import run_command, is_unix
+from .vcpkg import setup_vcpkg, vcpkg_executable_name
 
 # -----------------------------------------------------------------------------
 
 def handle_install_command():
-    
-    if is_unix():
-        path_to_vcpkg = "vcpkg/vcpkg"
-    else:
-        path_to_vcpkg = "vcpkg/vcpkg.exe"
-    
-    vcpkg_install = [path_to_vcpkg, "install"]
+    if not os.path.exists("vcpkg"):
+        setup_vcpkg()
+
+    vcpkg = vcpkg_executable_name()
+    vcpkg_install = [vcpkg, "install"]
 
     run_command(vcpkg_install)
 
