@@ -1,10 +1,10 @@
 import os
-from .utils import run_command
+from .utils import run_command, is_unix
 
 # -----------------------------------------------------------------------------
 
 def find_cmake_app():
-    cmake_app_name = "cmake"
+    cmake_app_name = "cmake" if is_unix() else "cmake.exe"
     vcpkg_root = "vcpkg"
 
     for root, _, files in os.walk(vcpkg_root):

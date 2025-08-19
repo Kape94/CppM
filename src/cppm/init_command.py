@@ -2,7 +2,7 @@ import os
 import shutil
 from .install_command import handle_install_command
 from .create_starter_project import create_starter_project
-from .utils import run_command
+from .utils import run_command, is_unix
 
 # -----------------------------------------------------------------------------
 
@@ -30,12 +30,13 @@ def bootstrap_vcpkg():
     os.chdir("vcpkg")
 
     run_bootstrap_script = []
-    if os.name == "posix":
+    
+    if is_unix():
         unix_sh_command = shutil.which("sh")
         run_bootstrap_script = [unix_sh_command, "bootstrap-vcpkg.sh"]
     else: #windows
-        windows_call_command = shutil.which("call")
-        run_bootstrap_script = [windows_call_command, "bootstrap-vcpkg.bat"]
+        run_bootstrap_script = ["bootstrap-vcpkg.bat"]
+    
     run_command(run_bootstrap_script)
 
     os.chdir("..")
